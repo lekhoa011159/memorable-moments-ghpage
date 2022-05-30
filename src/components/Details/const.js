@@ -1,0 +1,5 @@
+const CONSTANTS = {
+  GET_RECOMMEND_ITEMS: "GET_RECOMMEND_ITEMS",
+};
+
+export default CONSTANTS;
