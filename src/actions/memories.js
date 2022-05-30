@@ -43,6 +43,12 @@ export const getAll = createAsyncThunk(
       const { data } = await axios.get(url);
 
       if (data && data.length > 0) return { data, isSearched, totalCounted };
+
+      return {
+        data: [],
+        isSearched,
+        totalCounted,
+      };
     } catch (err) {
       console.log(`Error: ${err}`);
       throw err;

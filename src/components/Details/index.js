@@ -85,7 +85,18 @@ const DetailsPage = (props) => {
   };
 
   if (!selectedItem && !isLoading) {
-    return <div>No item</div>;
+    return (
+      <img
+        src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+        alt="fallback_notfound"
+        style={{
+          margin: "0 auto",
+          display: "block",
+          marginTop: 16,
+          width: "100%",
+        }}
+      />
+    );
   }
 
   if (!selectedItem && isLoading) {
