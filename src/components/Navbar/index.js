@@ -91,7 +91,7 @@ const Navbar = (props) => {
     return (
       <Grid item xs={8}>
         <Grid container alignItems="center">
-          <Link style={{ marginLeft: 24 }} to="/">
+          <Link style={{ marginLeft: 24 }} to="/memorable-moments-ghpage">
             {/* For self-custom logo */}
             <img height={80} src="https://i.imgur.com/vSUWiWd.png" alt="Logo" />
           </Link>

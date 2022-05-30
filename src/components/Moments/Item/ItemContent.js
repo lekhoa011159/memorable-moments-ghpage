@@ -59,7 +59,7 @@ const ItemContent = (props) => {
 
   return (
     <CardActionArea>
-      <Link to={isLoading ? `` : `/${itemId}`}>
+      <Link to={isLoading ? `` : `/memorable-moments-ghpage/${itemId}`}>
         <Box
           sx={{
             display: "flex",

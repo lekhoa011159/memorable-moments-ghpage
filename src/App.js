@@ -26,7 +26,7 @@ const App = () => {
       <Navbar isSearchbarShow={isSearchbarShow} onChangeSearch={handleSearch} />
       <Routes>
         <Route
-          path="/"
+          path="/memorable-moments-ghpage"
           exact
           element={
             <Main
@@ -37,8 +37,23 @@ const App = () => {
           }
         />
         <Route
-          path="/:id"
+          path="/memorable-moments-ghpage/:id"
           element={<Details toggleSearchbarShow={toggleSearchbarShow} />}
+        />
+        <Route
+          path="*"
+          element={
+            <img
+              src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+              alt="fallback_notfound"
+              style={{
+                margin: "0 auto",
+                display: "block",
+                marginTop: 16,
+                width: "100%",
+              }}
+            />
+          }
         />
       </Routes>
     </Container>
