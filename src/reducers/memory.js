@@ -17,11 +17,11 @@ const memorySlice = createSlice({
     builder
       .addCase(getItem.pending, memoryBuilders.get.pending)
       .addCase(getItem.fulfilled, memoryBuilders.get.fulfilled)
-      .addCase(getItem.rejected, memoryBuilders.get.rejected)
+      .addCase(getItem.rejected, memoryBuilders.get.rejected);
 
-      .addCase(getRecommend.pending, memoryBuilders.getRecommend.pending)
-      .addCase(getRecommend.fulfilled, memoryBuilders.getRecommend.fulfilled)
-      .addCase(getRecommend.rejected, memoryBuilders.getRecommend.rejected);
+    // .addCase(getRecommend.pending, memoryBuilders.getRecommend.pending)
+    // .addCase(getRecommend.fulfilled, memoryBuilders.getRecommend.fulfilled)
+    // .addCase(getRecommend.rejected, memoryBuilders.getRecommend.rejected);
   },
 });
 

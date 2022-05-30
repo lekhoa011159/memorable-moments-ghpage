@@ -30,7 +30,7 @@ const DetailsPage = (props) => {
   useEffect(() => {
     (async () => {
       if (selectedItem) {
-        dispatch(getRecommendItem(selectedItem));
+        // dispatch(getRecommendItem(selectedItem));
       }
     })();
   }, [dispatch, selectedItem]);

@@ -21,9 +21,9 @@ const NoItem = (props) => {
       <Typography
         sx={{ textAlign: "center", mt: (theme) => theme.spacing(2) }}
         variant="h4"
-        color="lightblue"
+        color="secondary"
       >
-        LOOK LIKE YOU DIDN'T HAVE ANY MEMORY IN HERE, TRY CREATE ONE.
+        LOOK LIKE YOU DON'T HAVE ANY MEMORIES HERE, TRY CREATING ONE.
       </Typography>
       {/* <Button variant="contained" color="primary">
         Create your first Memory

@@ -58,7 +58,7 @@ const FormContent = (props) => {
         size="small"
         rows={4}
         variant="outlined"
-        label="What's your memorable moments today?"
+        label="Tell your memorable moments"
         value={content}
         onChange={handleChange(CONST.CHANGE_CONTENT)}
       />
