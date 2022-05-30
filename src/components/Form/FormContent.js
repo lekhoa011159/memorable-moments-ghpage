@@ -58,13 +58,13 @@ const FormContent = (props) => {
         size="small"
         rows={4}
         variant="outlined"
-        label="What happened..."
+        label="What's your memorable moments today?"
         value={content}
         onChange={handleChange(CONST.CHANGE_CONTENT)}
       />
       <TextField
         fullWidth
-        label="Tags (seperate by comma)"
+        label="Tags (separate by comma)"
         size="small"
         variant="outlined"
         value={tags}

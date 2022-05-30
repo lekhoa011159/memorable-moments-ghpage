@@ -124,7 +124,7 @@ const Form = (props) => {
     <Paper sx={sx.Paper} elevation={24}>
       <Box component="form" noValidate autoComplete="off" sx={sx.BoxFormFlex}>
         <Typography variant="h6" sx={sx.TypographyFormHeader}>
-          {props.selectedMemory ? "EDIT" : "STORAGE"} YOUR MEMORY HERE
+          {props.selectedMemory ? "EDIT" : "KEEP"} YOUR MEMORY HERE
         </Typography>
 
         <FormContent

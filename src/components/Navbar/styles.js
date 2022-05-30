@@ -3,8 +3,11 @@ import purple from "@mui/material/colors/purple";
 
 export const theme = createTheme({
   palette: {
-    // primary: { main: green["A700"] },
-    secondary: { main: purple["A200"] },
+    primary: { main: purple["600"] },
+    secondary: {
+      main: purple["100"],
+      dark: purple["600"],
+    },
   },
 });
 
@@ -19,15 +22,14 @@ const sx = {
     textTransform: "none",
     justifyContent: "space-between",
     minWidth: 200,
-    borderColor: "#fff",
-    color: "#fff",
+    borderColor: purple["600"],
     borderRadius: "12px !important",
     padding: "5px",
     margin: 0,
     width: "100%",
     "& #hotkey-search": {
       padding: "0 5px !important",
-      border: (theme) => `1px solid #fff`,
+      border: (theme) => `1px solid ${purple["600"]}`,
       borderRadius: (theme) => theme.spacing(1),
     },
   },

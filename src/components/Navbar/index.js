@@ -93,7 +93,7 @@ const Navbar = (props) => {
         <Grid container alignItems="center">
           <Link style={{ marginLeft: 24 }} to="/memorable-moments-ghpage">
             {/* For self-custom logo */}
-            <img height={80} src="https://i.imgur.com/vSUWiWd.png" alt="Logo" />
+            <img height={80} src="https://i.imgur.com/BLkK2e8.png" alt="Logo" />
           </Link>
         </Grid>
       </Grid>
@@ -106,7 +106,7 @@ const Navbar = (props) => {
         <Grid container justifyContent="space-evenly" alignItems="center">
           {props.isSearchbarShow && (
             <Button
-              color="secondary"
+              color="primary"
               variant="outlined"
               size="large"
               onClick={showDialogSearch}
