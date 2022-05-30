@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/memorable-moments/static/css/main.1eaf7db4.css",
+    "main.js": "/memorable-moments/static/js/main.9cc0bc90.js",
+    "index.html": "/memorable-moments/index.html",
+    "main.1eaf7db4.css.map": "/memorable-moments/static/css/main.1eaf7db4.css.map",
+    "main.9cc0bc90.js.map": "/memorable-moments/static/js/main.9cc0bc90.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1eaf7db4.css",
+    "static/js/main.9cc0bc90.js"
+  ]
+}
