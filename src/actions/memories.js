@@ -23,20 +23,26 @@ export const getAll = createAsyncThunk(
   async (searchQuery, thunkAPI) => {
     try {
       let url = "https://salty-beyond-20522.herokuapp.com/apis/posts/v1";
+      let isSearched = false;
       if (searchQuery) {
         const { title, author, offset } = searchQuery;
         url += "?";
-        if (title) url += `title=${encodeURIComponent(title)}`;
-        if (author) url += `&author=${encodeURIComponent(author)}`;
+        if (title) {
+          url += `title=${encodeURIComponent(title)}`;
+          isSearched = true;
+        }
+        if (author) {
+          url += `&author=${encodeURIComponent(author)}`;
+          isSearched = true;
+        }
         if (offset) url += `&offset=${offset}`;
       }
-      const { data } = await axios.get(url);
       const {
         payload: { totalCounted },
       } = await thunkAPI.dispatch(getTotal(searchQuery));
+      const { data } = await axios.get(url);
 
-      if (data && data.length > 0) await sleep(2000);
-      return { data, isSearched: Boolean(searchQuery), totalCounted };
+      if (data && data.length > 0) return { data, isSearched, totalCounted };
     } catch (err) {
       console.log(`Error: ${err}`);
       throw err;
@@ -48,7 +54,8 @@ export const getTotal = createAsyncThunk(
   "memories/getTotal",
   async (searchQuery) => {
     try {
-      let url = "https://salty-beyond-20522.herokuapp.com/apis/posts/v1/totalCount";
+      let url =
+        "https://salty-beyond-20522.herokuapp.com/apis/posts/v1/totalCount";
       if (searchQuery) {
         const { title, author } = searchQuery;
         url += "?";
@@ -67,7 +74,10 @@ export const getTotal = createAsyncThunk(
 export const createMemory = createAsyncThunk(
   "memories/create",
   async (post) => {
-    const res = await axios.post("https://salty-beyond-20522.herokuapp.com/apis/posts/v1", post);
+    const res = await axios.post(
+      "https://salty-beyond-20522.herokuapp.com/apis/posts/v1",
+      post
+    );
     const { status, data } = res;
 
     if (status === 200) {
@@ -82,7 +92,10 @@ export const createMemory = createAsyncThunk(
 export const updateMemory = createAsyncThunk(
   "memories/update",
   async (post) => {
-    const res = await axios.put("https://salty-beyond-20522.herokuapp.com/apis/posts/v1", post);
+    const res = await axios.put(
+      "https://salty-beyond-20522.herokuapp.com/apis/posts/v1",
+      post
+    );
     const { status } = res;
 
     if (status === 200) {

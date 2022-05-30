@@ -11,7 +11,7 @@ import sx from "./styles";
 const Main = (props) => {
   const dispatch = useDispatch();
   const isSearched = useSelector((state) => state.memories.isSearched);
-  const isLoading = useSelector((state) => state.memories.isLoading);
+  const isLoading = useSelector((state) => state.memories.loading);
   const totalCounted = useSelector((state) => state.memories.totalCounted);
 
   const [selectedMemory, setSelectedMemory] = useState(null);
@@ -23,27 +23,33 @@ const Main = (props) => {
 
   useEffect(() => {
     dispatch(memoriesActions.get());
+  }, [dispatch]);
+
+  useEffect(() => {
     toggleSearchbarShow(true);
-  }, [dispatch, toggleSearchbarShow]);
+  }, [toggleSearchbarShow]);
 
   const renderSearchedChip = () => {
-    return Object.keys(searchObject).map((searchKey) => {
-      if (searchObject[searchKey] !== "") {
-        return (
-          <Chip
-            key={searchKey}
-            sx={sx.Chip}
-            label={`by ${searchKey}: ${searchObject[searchKey]}`}
-            color="secondary"
-            onDelete={handleDeleteSearch(searchKey)}
-          />
-        );
-      }
-      return null;
-    });
+    if (isSearched) {
+      return Object.keys(searchObject).map((searchKey) => {
+        if (searchObject[searchKey] !== "") {
+          return (
+            <Chip
+              key={searchKey}
+              sx={sx.Chip}
+              label={`by ${searchKey}: ${searchObject[searchKey]}`}
+              color="secondary"
+              onDelete={handleDeleteSearch(searchKey)}
+            />
+          );
+        }
+        return null;
+      });
+    }
   };
 
   const renderPagination = () => {
+    // if (!isLoading) {
     return (
       <Stack spacing={2}>
         {totalCounted > 2 && (
@@ -56,6 +62,8 @@ const Main = (props) => {
         )}
       </Stack>
     );
+    // }
+    // return null;
   };
 
   const calculatedCountPagination = () => {
@@ -66,6 +74,7 @@ const Main = (props) => {
 
   const handleGetByOffset = (evt, os) => {
     onChangeOffset(os);
+    console.log(os, isSearched, searchObject);
     if (isSearched) {
       dispatch(getAll({ offset: os, ...searchObject }));
     } else {
@@ -87,10 +96,10 @@ const Main = (props) => {
     }
   };
 
-  const handleDeleteSearch = (searchKey) => () => {
+  const handleDeleteSearch = (searchKey) => async () => {
     const modifiedSearchObject = { ...searchObject, [searchKey]: "" };
-    props.onChangeSearch(modifiedSearchObject);
-    dispatch(getAll(modifiedSearchObject));
+    await dispatch(getAll(modifiedSearchObject));
+    await props.onChangeSearch(modifiedSearchObject);
   };
 
   const handleEditMemory = (item) => {
@@ -128,9 +137,9 @@ const Main = (props) => {
           columns={12}
         >
           <Grid item xs={8}>
-            {isSearched && renderSearchedChip()}
+            {renderSearchedChip()}
             <Moments callbackHandler={callbackHandler} />
-            {!isLoading && renderPagination()}
+            {renderPagination()}
           </Grid>
           <Grid item xs={4}>
             <Form
